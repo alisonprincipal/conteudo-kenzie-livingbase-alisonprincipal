@@ -1,1 +1,2 @@
-/* Desenvolva seu script aqui */
+import { estruturaHome } from "../../scripts/domHome.js";
+estruturaHome()
