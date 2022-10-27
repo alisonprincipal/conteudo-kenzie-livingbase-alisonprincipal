@@ -1,1 +1,154 @@
-/* Desenvolva seu estilo aqui */
+header{
+    width: 1200px;
+    max-width: 1200px;
+    height: 98px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+header>div{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.iconeLog{
+    width: 29px;
+    height: 22.08px;
+    background: #087F5B;
+    border-radius: 0px 6px;
+}
+.tituloLog{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 150%;
+    color: #212529;
+}
+header>button{
+    width: 90px;
+    height: 38px;
+    background: #F1F3F5;
+    border-radius: 32px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+}
+header>button:hover{
+    background-color: #212529;
+    color: white;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.infoTema{
+    height: 336px;
+    width: 100%;
+    background: #F1F3F5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 620px;
+}
+.infoTema>h1{
+    width: 1140px;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 150%;
+    color: #212529;
+}
+.infoTema>p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+}
+.infoPost{
+    width: 1200px;
+    max-width: 1200px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+.infoPost>img{
+    width: 1140px;
+    height: 402px;
+}
+.infoPost>p{
+   max-width: 1140px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+}
+.infoPost>nav{
+    display: flex;
+    gap: 40px;
+}
+.infoPost>nav>button{
+    width: 92px;
+    height: 38px;
+    background: #F1F3F5;
+    border: 1px solid #F1F3F5;
+    border-radius: 32px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px;
+    color: #495057;
+    border: none;
+    cursor: pointer;
+}
+.infoPost>nav>button:hover{
+    color: whitesmoke;
+    background-color: #495057;
+
+}
+footer{
+    display: flex;
+    Height:255px;
+    padding-left: 300px;
+    background: #212529;
+    gap: 260px;
+    align-items: center;
+}
+footer>div{
+    display: flex;
+    gap: 50px;
+}
+footer>div>p{
+    max-width: 550px;
+    font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: #808387;
+
+}
+footer>div>div{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+footer>a{
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    width: 180px;
+    background: #495057;
+    border: 1px solid #495057;
+    border-radius: 32px;
+    cursor: pointer;
+}
+footer>a:hover{
+    color: rgb(206, 202, 197);
+    background-color: #64696e;
+}
+#musa{
+    color: #F8F9FA;
+}
