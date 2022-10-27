@@ -2,6 +2,12 @@ import { requestPosts } from './requisicao.js'
 const requisicao = await requestPosts()
 // variavel para guardar valor
 let listaFiltro = requisicao
+const storage = JSON.parse(localStorage.getItem('listaStore'))
+if(!storage){
+    const lsStorage = JSON.stringify(listaFiltro)
+    localStorage.setItem('listaStore',lsStorage)
+}
+
 export async function estruturaHome() {
     document.body.insertAdjacentHTML('beforeend', `
     <header>
@@ -19,14 +25,14 @@ export async function estruturaHome() {
     </div>
 </header>
 <nav class="navegacao">
-        <button id="Todos" >Todos</button>
-        <button id="Pintura">Pintura</button>
-        <button id="Decoração">Decoração</button>
-        <button id="Organização">Organização</button>
-        <button id="Limpeza">Limpeza</button>
-        <button id="Segurança">Segurança</button>
-        <button id="Reforma">Reforma</button>
-        <button id="Aromas">Aromas</button>
+        <button class='btnfiltro' id="Todos" >Todos</button>
+        <button class='btnfiltro' id="Pintura">Pintura</button>
+        <button class='btnfiltro' id="Decoração">Decoração</button>
+        <button class='btnfiltro' id="Organização">Organização</button>
+        <button class='btnfiltro' id="Limpeza">Limpeza</button>
+        <button class='btnfiltro' id="Segurança">Segurança</button>
+        <button class='btnfiltro' id="Reforma">Reforma</button>
+        <button class='btnfiltro' id="Aromas">Aromas</button>
 </nav>
 <main>
         <ul class="listasPost">
@@ -47,9 +53,11 @@ export async function estruturaHome() {
     // chamando Posts Dinamicamente
     percorrePosts(requisicao)
     // filtrandoLista
-    filtrandoLista(requisicao)
+    filtrandoLista(listaFiltro)
     // scrol infinito
     scroolInfinito()
+    //filtro auto
+    filtroAuto ()
 }
 // >>>>>>>>>>>>>>>>>>
 async function scroolInfinito() {
@@ -101,15 +109,9 @@ function gerandoLista(item) {
     })
 }
 function filtrandoLista(lista) {
-    const filtro = JSON.parse(localStorage.getItem('fltStorage'))
     const ul = document.querySelector('ul')
-    const btnFiltro = document.querySelectorAll('button')
+    const btnFiltro = document.querySelectorAll('.btnfiltro')
     btnFiltro.forEach((btn) => {
-        //condicional para realizar o filtro automatico apos o click na page Post
-        if(btn.id==filtro){
-            btn.click()
-            setTimeout(()=>{localStorage.removeItem('fltStorage')},2000)
-        }
         btn.addEventListener('click', (event) => {
             ul.innerHTML = ''
             const filtro = event.target.id
@@ -136,12 +138,17 @@ async function verificaListaStorage() {
         listaFiltro.push(element)
     })
     filtrandoLista(listaFiltro)
-    console.log(listaFiltro)
+    const arrayFiltroStorage = JSON.stringify(listaFiltro)
+    localStorage.setItem('listaStore',arrayFiltroStorage)
     return listaFiltro
 }
-function filtroAuto (){
+export function filtroAuto (){
+    const ul = document.querySelector('ul')
     const filtro = JSON.parse(localStorage.getItem('fltStorage'))
     if(filtro){
-        return verificaCOntadorStorage()
+            const filAuto = storage.filter((element)=>element.category== filtro)
+            ul.innerHTML =''
+            percorrePosts(filAuto)
+           localStorage.removeItem('fltStorage')     
     }
-}filtroAuto()
+}

@@ -52,7 +52,7 @@ export async function estruturaPost(post){
                 const pesquisa = event.target.id
                 const trans=  JSON.stringify(pesquisa)
                 localStorage.setItem('fltStorage',trans)
-                setTimeout(()=>{window.location.replace('../../index.html')},1500)
+                window.location.replace('../../index.html')
             })
         })
     }filtroStorage()
