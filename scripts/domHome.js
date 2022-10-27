@@ -27,7 +27,6 @@ export async function estruturaHome() {
         <button id="Segurança">Segurança</button>
         <button id="Reforma">Reforma</button>
         <button id="Aromas">Aromas</button>
-        <button id="Anum">Anum</button>
 </nav>
 <main>
         <ul class="listasPost">
@@ -102,9 +101,15 @@ function gerandoLista(item) {
     })
 }
 function filtrandoLista(lista) {
+    const filtro = JSON.parse(localStorage.getItem('fltStorage'))
     const ul = document.querySelector('ul')
     const btnFiltro = document.querySelectorAll('button')
     btnFiltro.forEach((btn) => {
+        //condicional para realizar o filtro automatico apos o click na page Post
+        if(btn.id==filtro){
+            btn.click()
+            setTimeout(()=>{localStorage.removeItem('fltStorage')},2000)
+        }
         btn.addEventListener('click', (event) => {
             ul.innerHTML = ''
             const filtro = event.target.id
@@ -131,5 +136,12 @@ async function verificaListaStorage() {
         listaFiltro.push(element)
     })
     filtrandoLista(listaFiltro)
+    console.log(listaFiltro)
     return listaFiltro
 }
+function filtroAuto (){
+    const filtro = JSON.parse(localStorage.getItem('fltStorage'))
+    if(filtro){
+        return verificaCOntadorStorage()
+    }
+}filtroAuto()

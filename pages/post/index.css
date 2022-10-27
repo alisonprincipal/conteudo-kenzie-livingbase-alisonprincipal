@@ -1,4 +1,4 @@
-header{
+header {
     width: 1200px;
     max-width: 1200px;
     height: 98px;
@@ -8,24 +8,28 @@ header{
     align-items: center;
     padding: 10px;
 }
-header>div{
+
+header>div {
     display: flex;
     align-items: center;
     gap: 30px;
 }
-.iconeLog{
+
+.iconeLog {
     width: 29px;
     height: 22.08px;
     background: #087F5B;
     border-radius: 0px 6px;
 }
-.tituloLog{
+
+.tituloLog {
     font-weight: 700;
     font-size: 28px;
     line-height: 150%;
     color: #212529;
 }
-header>button{
+
+header>button {
     width: 90px;
     height: 38px;
     background: #F1F3F5;
@@ -37,17 +41,20 @@ header>button{
     line-height: 150%;
     color: #495057;
 }
-header>button:hover{
+
+header>button:hover {
     background-color: #212529;
     color: white;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
 }
-.infoTema{
+
+.infoTema {
     height: 336px;
     width: 100%;
     background: #F1F3F5;
@@ -56,20 +63,23 @@ main{
     align-items: flex-start;
     padding-left: 620px;
 }
-.infoTema>h1{
+
+.infoTema>h1 {
     width: 1140px;
     font-weight: 600;
     font-size: 40px;
     line-height: 150%;
     color: #212529;
 }
-.infoTema>p{
+
+.infoTema>p {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     color: #495057;
 }
-.infoPost{
+
+.infoPost {
     width: 1200px;
     max-width: 1200px;
     margin-top: 50px;
@@ -77,22 +87,26 @@ main{
     flex-direction: column;
     gap: 55px;
 }
-.infoPost>img{
+
+.infoPost>img {
     width: 1140px;
     height: 402px;
 }
-.infoPost>p{
-   max-width: 1140px;
+
+.infoPost>p {
+    max-width: 1140px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     color: #495057;
 }
-.infoPost>nav{
+
+.infoPost>nav {
     display: flex;
-    gap: 40px;
+    gap: 60px;
 }
-.infoPost>nav>button{
+
+.infoPost>nav>button {
     width: 92px;
     height: 38px;
     background: #F1F3F5;
@@ -105,37 +119,43 @@ main{
     border: none;
     cursor: pointer;
 }
-.infoPost>nav>button:hover{
+
+.infoPost>nav>button:hover {
     color: whitesmoke;
     background-color: #495057;
 
 }
-footer{
+
+footer {
     display: flex;
-    Height:255px;
+    Height: 255px;
     padding-left: 300px;
     background: #212529;
     gap: 260px;
     align-items: center;
 }
-footer>div{
+
+footer>div {
     display: flex;
     gap: 50px;
 }
-footer>div>p{
+
+footer>div>p {
     max-width: 550px;
     font-weight: 400;
-font-size: 16px;
-line-height: 150%;
-color: #808387;
+    font-size: 16px;
+    line-height: 150%;
+    color: #808387;
 
 }
-footer>div>div{
+
+footer>div>div {
     display: flex;
     align-items: center;
     gap: 30px;
 }
-footer>a{
+
+footer>a {
     text-align: center;
     text-decoration: none;
     padding: 5px;
@@ -145,10 +165,12 @@ footer>a{
     border-radius: 32px;
     cursor: pointer;
 }
-footer>a:hover{
+
+footer>a:hover {
     color: rgb(206, 202, 197);
     background-color: #64696e;
 }
-#musa{
+
+#musa {
     color: #F8F9FA;
 }
