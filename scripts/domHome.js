@@ -151,6 +151,7 @@ export function filtroAuto (){
             percorrePosts(filAuto)
            localStorage.removeItem('fltStorage')     
     }if (filtro && filtro=='Todos'){
+        ul.innerHTML =''
         percorrePosts(listaFiltro)
         localStorage.removeItem('fltStorage')  
     }
