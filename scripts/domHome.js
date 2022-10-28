@@ -3,9 +3,9 @@ const requisicao = await requestPosts()
 // variavel para guardar valor
 let listaFiltro = requisicao
 const storage = JSON.parse(localStorage.getItem('listaStore'))
-if(!storage){
+if (!storage) {
     const lsStorage = JSON.stringify(listaFiltro)
-    localStorage.setItem('listaStore',lsStorage)
+    localStorage.setItem('listaStore', lsStorage)
 }
 
 export async function estruturaHome() {
@@ -53,11 +53,11 @@ export async function estruturaHome() {
     // chamando Posts Dinamicamente
     percorrePosts(requisicao)
     // filtrandoLista
-    filtrandoLista(listaFiltro)
+    filtrandoLista(storage)
     // scrol infinito
     scroolInfinito()
-    //filtro auto
-    filtroAuto ()
+    // auto click
+    autoClick()
 }
 // >>>>>>>>>>>>>>>>>>
 async function scroolInfinito() {
@@ -74,7 +74,7 @@ async function scroolInfinito() {
     })
     oberservando.observe(oberserver)
 }
-export  function percorrePosts(array) {
+export function percorrePosts(array) {
     array.forEach((element) => gerandoLista(element))
 }
 function gerandoLista(item) {
@@ -102,10 +102,10 @@ function gerandoLista(item) {
     // evento de click no span
     span.addEventListener('click', (event) => {
         const idElement = event.target.id
-        const elementoPost = storage.filter((post)=>post.id==idElement)
-         const trans=JSON.stringify(elementoPost)
-         localStorage.setItem('newPost',trans)
-         setTimeout(()=>{window.location.replace('./pages/post/index.html')},2500)  
+        const elementoPost = storage.filter((post) => post.id == idElement)
+        const trans = JSON.stringify(elementoPost)
+        localStorage.setItem('newPost', trans)
+        setTimeout(() => { window.location.replace('./pages/post/index.html')})
     })
 }
 function filtrandoLista(lista) {
@@ -139,21 +139,17 @@ async function verificaListaStorage() {
     })
     filtrandoLista(listaFiltro)
     const arrayFiltroStorage = JSON.stringify(listaFiltro)
-    localStorage.setItem('listaStore',arrayFiltroStorage)
+    localStorage.setItem('listaStore', arrayFiltroStorage)
     return listaFiltro
 }
-export function filtroAuto (){
-    const ul = document.querySelector('ul')
+function autoClick() {
     const filtro = JSON.parse(localStorage.getItem('fltStorage'))
-    if(filtro){
-            const filAuto = storage.filter((element)=>element.category== filtro)
-            ul.innerHTML =''
-            percorrePosts(filAuto)
-           localStorage.removeItem('fltStorage')     
-    }if (filtro && filtro=='Todos'){
-        ul.innerHTML =''
-        percorrePosts(listaFiltro)
-        localStorage.removeItem('fltStorage')  
-    }
-
+    const btnClick = document.querySelectorAll('.btnfiltro')
+    const btnDados = [...btnClick]
+    btnDados.forEach((btn) => {
+        if (btn.id == filtro) {
+            btn.click()
+            localStorage.removeItem('fltStorage')
+        }
+    })
 }
