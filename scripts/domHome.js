@@ -74,8 +74,8 @@ async function scroolInfinito() {
     })
     oberservando.observe(oberserver)
 }
-export async function percorrePosts(array) {
-    await array.forEach((element) => gerandoLista(element))
+export  function percorrePosts(array) {
+    array.forEach((element) => gerandoLista(element))
 }
 function gerandoLista(item) {
     const ul = document.querySelector('ul')
@@ -102,10 +102,10 @@ function gerandoLista(item) {
     // evento de click no span
     span.addEventListener('click', (event) => {
         const idElement = event.target.id
-        const elementoPost = listaFiltro.filter((post)=>post.id==idElement)
+        const elementoPost = storage.filter((post)=>post.id==idElement)
          const trans=JSON.stringify(elementoPost)
          localStorage.setItem('newPost',trans)
-         setTimeout(()=>{window.location.replace('./pages/post/index.html')},2000)
+         setTimeout(()=>{window.location.replace('./pages/post/index.html')},2500)  
     })
 }
 function filtrandoLista(lista) {
@@ -150,5 +150,9 @@ export function filtroAuto (){
             ul.innerHTML =''
             percorrePosts(filAuto)
            localStorage.removeItem('fltStorage')     
+    }if (filtro && filtro=='Todos'){
+        percorrePosts(listaFiltro)
+        localStorage.removeItem('fltStorage')  
     }
+
 }
